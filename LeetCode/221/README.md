@@ -9,8 +9,8 @@
 2) Augment the array to store the adjacent following square sizes too.
 3) Start reading the array from bottom right and increment the counter for current element to store sizes in the current cell. Like So:
 
-| col | col | col | col |
-| --- | --- | --- | --- |
+| col | col | col | col | col |
+| --- | --- | --- | --- | --- |
 | A | A | A | B | B |
 | A | A | B | B | B |    
 | A | A | B | B | B |
@@ -18,8 +18,8 @@
 
 to
 
-| col | col | col | col |
-| --- | --- | --- | --- |
+| col | col | col | col | col |
+| --- | --- | --- | --- | --- |
 | A,3 | A,2 | A,1 | B,2 | B,1 |
 | A,2 | A,1 | B,3 | B,2 | B,1 |    
 | A,2 | A,1 | B,3 | B,2 | B,1 |
@@ -27,8 +27,8 @@ to
 
 3) All cells should be augmented to initialise their square sizes, i.e. square size for each cell will be 1x1. This can be denoted as 1 simply to reduce redundancy. Tuples can be denoted as (element, count, square) Like so:
 
-| col | col | col | col |
-| --- | --- | --- | --- |
+| col | col | col | col | col |
+| --- | --- | --- | --- | --- |
 | A,3,1 | A,2,1 | A,1,1 | B,2,1 | B,1,1 |
 | A,2,1 | A,1,1 | B,3,1 | B,2,1 | B,1,1 |    
 | A,2,1 | A,1,1 | B,3,1 | B,2,1 | B,1,1 |
@@ -40,8 +40,8 @@ to
 5.c) Count increases: if first cell has count (A, 3), i.e.. count should be (A, greater than 1), if next up cell has count (A, 4) that means we have a square of A of 3x3. And max square size of 3. Put size 3 in next up cell as (A, 4, 3). Go up once again.
 6) The above stated rules will transform the matrix into:
 
-| col | col | col | col |
-| --- | --- | --- | --- |
+| col | col | col | col | col |
+| --- | --- | --- | --- | --- |
 | A,3,2 | A,2,1 | A,1,1 | B,2,2 | B,1,1 |
 | A,2,2 | A,1,1 | B,3,2 | B,2,1 | B,1,1 |    
 | A,2,1 | A,1,1 | B,3,1 | B,2,2 | B,1,1 |
