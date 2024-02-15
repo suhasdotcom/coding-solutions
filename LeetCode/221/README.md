@@ -35,6 +35,7 @@ to
 | A,1,1 | B,1,1 | A,1,1 | B,2,1 | B,1,1 |
 
 5) Now start parsing the array from (max_row, 0) check next up cell (max_row-1, 0) to get the count of current element, cases here:
+  - Current and last cells differ: Current cell in that case can be max square of size one.
   - Count remains same: if first cell has count (A, 3), i.e.. count should be (A, greater than 1), if next up cell also has count (A, 3) that means we have a rectangle of A of 2x3. And max square size of 2. Put size 2 in next up cell as (A, 3, 2). Go up once again.
   - Count decreases: if first cell has count (A, 4), i.e.. count should be (A, greater than 1), if next up cell has count (A, 3) that means we have a square of 2x2. Put size 2 in next up cell as (A, 3, 2). Keep going up.
   - Count increases: if first cell has count (A, 3), i.e.. count should be (A, greater than 1), if next up cell has count (A, 4) that means we have a square of A of 3x3. And max square size of 3. Put size 3 in next up cell as (A, 4, 3). Go up once again.
