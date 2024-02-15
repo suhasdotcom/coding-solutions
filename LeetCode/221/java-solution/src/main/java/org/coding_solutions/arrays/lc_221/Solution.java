@@ -14,7 +14,7 @@ public class Solution {
         }
     }
 
-    private record CharSquareCount(CharAndCount c, int sqCount) {}
+    private record CharSquareCount(char c, int count, int sqCount) {}
 
     /**
      *
@@ -41,13 +41,62 @@ public class Solution {
         return charCountArray;
     }
 
+    CharSquareCount[][] augmentSquareToArray(CharAndCount[][] theArray) {
+        CharSquareCount[][] csc = new CharSquareCount[theArray.length][theArray[0].length];
+        for(int j=0; j<theArray[0].length; j++) {
+            int sqCount = 1;
+            CharAndCount lastElement = theArray[theArray.length-1][j];
+            int minSq = lastElement.count;
+            for(int i=theArray.length-1; i>=0; i--) {
+                CharAndCount currElement = theArray[i][j];
+                if(i==theArray.length-1)
+                    csc[i][j]=new CharSquareCount(lastElement.c, lastElement.count, sqCount);
+                else{
+                    if(currElement.c!=lastElement.c) {
+                        sqCount = 1;
+                        csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
+                    }
+                    else {
+                        if(currElement.count == lastElement.count) {
+                            if(sqCount<currElement.count) sqCount++;
+                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
+                        } else if (currElement.count<lastElement.count) {
+                            if(sqCount<currElement.count) sqCount++;
+                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
+                        } else {
+                            if(sqCount<currElement.count && sqCount<minSq) sqCount++;
+                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
+                        }
+                    }
+                }
+                lastElement = currElement;
+            }
+        }
+        return csc;
+    }
+
+    static void printMatrix(final char[][] theMatrix) {
+        for (char[] row : theMatrix) {
+            for (char col: row)
+                System.out.print(col+" ");
+            System.out.println();
+        }
+    }
+
+    static <T> void printMatrix(final T[][] theMatrix) {
+        for (T[] row : theMatrix) {
+            for (T col: row)
+                System.out.print(col+" ");
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         Solution s = new Solution();
         CharAndCount[][] cs = s.augmentCountToArray(s.sampleArray);
-        for (CharAndCount[] charAndCounts : cs) {
-            for (CharAndCount charAndCount: charAndCounts)
-                System.out.print(charAndCount+" ");
-            System.out.println();
-        }
+        printMatrix(s.sampleArray);
+        printMatrix(cs);
+        CharSquareCount[][] csc = s.augmentSquareToArray(cs);
+        printMatrix(csc);
     }
 }
