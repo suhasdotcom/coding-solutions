@@ -14,6 +14,8 @@ public class Solution {
         }
     }
 
+    private record CharSquareCount(CharAndCount c, int sqCount) {}
+
     /**
      *
      * @param theArray assumes this array to have same number of columns in all rows.
