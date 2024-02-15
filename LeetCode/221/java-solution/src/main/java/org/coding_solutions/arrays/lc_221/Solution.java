@@ -7,6 +7,10 @@ public class Solution {
             {'A', 'A', 'B', 'B', 'B'},
             {'A', 'B', 'A', 'B', 'B'},
     };
+    
+    char[][] sampleArray2 = {{'1','0','1','0','0'},{'1','0','1','1','1'},{'1','1','1','1','1'},{'1','0','0','1','0'}};
+    
+    char[][] smallArr = {{'0','1'},{'1','0'}};
 
     private record CharAndCount(char c, int count){
         public CharAndCount {
@@ -59,10 +63,10 @@ public class Solution {
                     else {
                         if(currElement.count == lastElement.count) {
                             if(sqCount<currElement.count) sqCount++;
-                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
+                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, Math.min(sqCount, currElement.count));
                         } else if (currElement.count<lastElement.count) {
                             if(sqCount<currElement.count) sqCount++;
-                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
+                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, Math.min(sqCount, currElement.count));
                         } else {
                             if(sqCount<currElement.count && sqCount<minSq) sqCount++;
                             csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
@@ -93,8 +97,9 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        CharAndCount[][] cs = s.augmentCountToArray(s.sampleArray);
-        printMatrix(s.sampleArray);
+        char [][] arr = s.smallArr;
+        printMatrix(arr);
+        CharAndCount[][] cs = s.augmentCountToArray(arr);
         printMatrix(cs);
         CharSquareCount[][] csc = s.augmentSquareToArray(cs);
         printMatrix(csc);
