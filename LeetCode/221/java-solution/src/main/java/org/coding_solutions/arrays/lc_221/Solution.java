@@ -12,6 +12,14 @@ public class Solution {
     
     char[][] smallArr = {{'0','1'},{'1','0'}};
 
+    char[][] bigArray = {
+            {'A', 'A', 'A', 'B', 'B', 'B'},
+            {'A', 'A', 'B', 'B', 'B', 'B'},
+            {'A', 'A', 'B', 'B', 'B', 'B'},
+            {'A', 'B', 'B', 'B', 'B', 'B'},
+            {'A', 'B', 'B', 'B', 'B', 'B'},
+    };
+
     private record CharAndCount(char c, int count){
         public CharAndCount {
             if(count<1) throw new IllegalArgumentException("Count must be greater than or equal to one");
