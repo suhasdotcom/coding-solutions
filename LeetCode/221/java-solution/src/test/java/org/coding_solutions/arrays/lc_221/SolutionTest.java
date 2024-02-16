@@ -11,11 +11,13 @@ import java.util.List;
 
 public class SolutionTest {
     private final static Path testFileDir = Path.of("..", "test-data");
+    private final Solution sut = new Solution();
 
     @ParameterizedTest
     @MethodSource("jsonTestData")
     public void testAgainstFiles(JSONTestData jsonTestData) {
-        assert jsonTestData.output() == 4;
+        int maxSquare = sut.maxSquare(jsonTestData.inputData());
+        assert jsonTestData.output() == maxSquare*maxSquare;
     }
 
     public static List<JSONTestData> jsonTestData() throws IOException {
