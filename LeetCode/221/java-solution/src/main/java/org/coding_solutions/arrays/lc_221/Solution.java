@@ -103,6 +103,17 @@ public class Solution {
         }
     }
 
+    public int maxSquare(final char[][] theMatrix) {
+        CharAndCount[][] cs = augmentCountToArray(theMatrix);
+        CharSquareCount[][] csc = augmentSquareToArray(cs);
+        int max = 1;
+        for(CharSquareCount[] cr: csc) {
+            for(CharSquareCount cc: cr)
+                if(cc.sqCount>max) max = cc.sqCount;
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         Solution s = new Solution();
         char [][] arr = s.bigArray;
