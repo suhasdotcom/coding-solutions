@@ -26,6 +26,8 @@ public class SolutionTest {
     @MethodSource("sks.utilities.test_prep.TestPrep#jsonFilesInDir")
     public void testJSONAgainstFiles(String jsonFilePath) throws IOException {
         JSONTestData obj = TestPrep.jsonFileToData(jsonFilePath, JSONTestData.class);
+        var cc = sut.augmentSquareToArray(obj.inputData());
+        TestPrep.printMatrix(cc);
         int maxSquare = sut.maxSquare(obj.inputData());
         assert obj.output() == maxSquare*maxSquare;
     }
