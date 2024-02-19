@@ -53,6 +53,11 @@ public class Solution {
         return charCountArray;
     }
 
+    CharSquareCount[][] augmentSquareToArray(char[][] theArray) {
+        final CharAndCount[][] cc  = augmentCountToArray(theArray);
+        return augmentSquareToArray(cc);
+    }
+
     CharSquareCount[][] augmentSquareToArray(CharAndCount[][] theArray) {
         CharSquareCount[][] csc = new CharSquareCount[theArray.length][theArray[0].length];
         for(int j=0; j<theArray[0].length; j++) {
@@ -107,6 +112,17 @@ public class Solution {
         for(CharSquareCount[] cr: csc) {
             for(CharSquareCount cc: cr)
                 if(cc.sqCount>max) max = cc.sqCount;
+        }
+        return max;
+    }
+
+    public int maxSquareForElement(final char[][] theMatrix, char element) {
+        CharAndCount[][] cs = augmentCountToArray(theMatrix);
+        CharSquareCount[][] csc = augmentSquareToArray(cs);
+        int max = 0;
+        for(CharSquareCount[] cr: csc) {
+            for(CharSquareCount cc: cr)
+                if(cc.c==element && cc.sqCount>max) max = cc.sqCount;
         }
         return max;
     }
