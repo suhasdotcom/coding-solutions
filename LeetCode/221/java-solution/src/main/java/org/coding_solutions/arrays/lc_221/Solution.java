@@ -69,10 +69,7 @@ public class Solution {
                         csc[i][j] = new CharSquareCount(currElement.c, currElement.count, sqCount);
                     }
                     else {
-                        if(currElement.count == lastElement.count) {
-                            if(sqCount<currElement.count) sqCount++;
-                            csc[i][j] = new CharSquareCount(currElement.c, currElement.count, Math.min(sqCount, currElement.count));
-                        } else if (currElement.count<lastElement.count) {
+                        if(currElement.count <= lastElement.count) {
                             if(sqCount<currElement.count) sqCount++;
                             csc[i][j] = new CharSquareCount(currElement.c, currElement.count, Math.min(sqCount, currElement.count));
                         } else {
