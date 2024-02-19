@@ -1,0 +1,17 @@
+{
+	"inputData": [
+		["0","0","1","0"],
+		["1","1","1","1"],
+		["1","1","1","1"],
+		["1","1","1","0"],
+		["1","1","0","0"],
+		["1","1","1","1"],
+		["1","1","1","0"]],
+	"charCountData": [
+		[{"c": "1", "count": 1, "sqCount": 1},{"c": "0", "count": 1, "sqCount": 1},{"c": "1", "count": 1, "sqCount": 1},{"c": "0", "count": 2, "sqCount": 1},{"c": "0", "count": 1, "sqCount": 1}],
+		[{"c": "1", "count": 1, "sqCount": 1},{"c": "0", "count": 1, "sqCount": 1},{"c": "1", "count": 3, "sqCount": 2},{"c": "1", "count": 2, "sqCount": 2},{"c": "1", "count": 1, "sqCount": 1}],
+		[{"c": "1", "count": 5, "sqCount": 1},{"c": "1", "count": 4, "sqCount": 1},{"c": "1", "count": 3, "sqCount": 1},{"c": "1", "count": 2, "sqCount": 1},{"c": "1", "count": 1, "sqCount": 1}],
+		[{"c": "1", "count": 1, "sqCount": 1},{"c": "0", "count": 2, "sqCount": 1},{"c": "0", "count": 1, "sqCount": 1},{"c": "1", "count": 1, "sqCount": 1},{"c": "0", "count": 1, "sqCount": 1}]
+	],
+	"output": 9
+}
